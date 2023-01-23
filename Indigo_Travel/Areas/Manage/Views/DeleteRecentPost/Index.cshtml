@@ -1,0 +1,43 @@
+﻿@model List<RecentPost>
+@{
+    int count = 0;
+}
+
+<div class="container">
+
+    <table class="table">
+        <h2>Deleted Recent Post Table</h2>
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Redirect Url</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (RecentPost post in Model)
+            {
+                count++;
+                <tr>
+                    <th scope="row">@count</th>
+                    <td style="width:200px">
+                        <img style="max-width:100%" src="~/uploads/recentpost/@post.ImageName" />
+
+                    </td>
+                    <td>@post.Title</td>
+                    <td>@post.Description</td>
+                    <td>@post.RedirectUrl</td>
+                    <td>
+                        <div class="d-flex">
+                        <a asp-action="restore" asp-controller="deleterecentpost" asp-route-id="@post.Id" class="btn btn-primary">Restore</a>
+                        <a asp-action="harddelete" asp-controller="deleterecentpost" asp-route-id="@post.Id" class="btn btn-danger"><i class="fas fa-trash"></i> Harrd Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

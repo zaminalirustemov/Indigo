@@ -1,0 +1,29 @@
+﻿@model RecentPost
+
+<div class="container">
+    <h2>Create Recent Post</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="ImageFile" class="form-label">Image</label>
+            <input asp-for="ImageFile" class="form-control" id="exampleInputEmail1" placeholder="Image">
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Title</label>
+            <input asp-for="Title" class="form-control" id="exampleInputEmail1" placeholder="Title">
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <input asp-for="Description" class="form-control" id="exampleInputEmail1" placeholder="Description">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="RedirectUrl" class="form-label">Redirect Url</label>
+            <input asp-for="RedirectUrl" class="form-control" id="exampleInputEmail1" placeholder="Redirect Url">
+            <span asp-validation-for="RedirectUrl" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+        <a asp-action="index" asp-controller="recentpost" class="btn btn-outline-dark">Cancel</a>
+    </form>
+</div>
